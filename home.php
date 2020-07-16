@@ -31,13 +31,5 @@
 
   <script src="inc/js/api_mango.js" type="text/javascript"></script> 
 
-  <?php
-  require_once('inc/mangoClass.php');
-
-  $myMangoAction = new Mangopay;
-  $myWallet = $myMangoAction->get_wallet(70934130);
-  print_r($myWallet);
-  ?>
-
 </body>
 </html>
