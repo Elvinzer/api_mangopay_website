@@ -19,7 +19,7 @@
       class="currency">
         {{ currency.description }} : {{ currency.rate_float }}
     </div>
-    <div class = "JSON_BRUT_Bitcoin">
+    <div class = "JSON_BRUT_Bitcoinn">
       JSON_BRUT_Bitcoin : {{ responseApiBitcoin }}
     </div>
     <div v-for ="person in responseApiMango"
