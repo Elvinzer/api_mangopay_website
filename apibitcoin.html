@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>API Mangopay</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="app">
+  <h1>Bitcoin Price Index</h1>
+    <div>
+      <div>Valeurs Bitcoins :</div>
+    </div>
+    <div
+      v-for="currency in info"
+      :key = "currency.code"
+      class="currency">
+        {{ currency.description }} : {{ currency.rate_float }}
+    </div>
+</div>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data :{
+        info : null
+      },
+      created() {
+        // On lance le scrutage de l'api
+        this.interval = setInterval(() => this.getApi(), 10000);
+      },
+      methods: {
+        getApi(){
+            axios
+          .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+          .then(response => (this.info = response.data.bpi))
+          .catch(error => console.log(error))
+        }
+      }
+    })
+  </script>
+</body>
+</html>
