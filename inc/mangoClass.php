@@ -153,7 +153,5 @@
 			}
 				return $monwallet;
 		}
-		}
-
 	}
 ?>
